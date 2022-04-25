@@ -29,16 +29,16 @@ public class BooksRestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<Book> create(@RequestBody BookDto productDto) {
-        return this.bookService.create(productDto)
-                .map(product -> ResponseEntity.ok().body(product))
+    public ResponseEntity<Book> create(@RequestBody BookDto bookDto) {
+        return this.bookService.create(bookDto)
+                .map(book -> ResponseEntity.ok().body(book))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Book> update(@PathVariable Long id, @RequestBody BookDto productDto) {
-        return this.bookService.update(id, productDto)
-                .map(product -> ResponseEntity.ok().body(product))
+    public ResponseEntity<Book> update(@PathVariable Long id, @RequestBody BookDto bookDto) {
+        return this.bookService.update(id, bookDto)
+                .map(book -> ResponseEntity.ok().body(book))
                 .orElseGet(() -> ResponseEntity.badRequest().build());
     }
 
