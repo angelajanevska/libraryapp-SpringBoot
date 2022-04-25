@@ -32,5 +32,8 @@ public class DataInit {
         this.bookService.create("Hamlet","DRAMA",1L,5);
         this.bookService.create("The Green Mile","FANTASY",2L,2);
         this.bookService.create("My Brilliant Friend","NOVEL",3L,4);
+        this.bookService.create("Romeo and Juliet","DRAMA",1L,1);
+        this.bookService.create("Book","BIOGRAPHY",2L,3);
+        this.bookService.create("Book","NOVEL",3L,7);
     }
 }
