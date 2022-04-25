@@ -1,12 +1,15 @@
 package mk.ukim.finki.libraryapp.web.rest;
 
 import mk.ukim.finki.libraryapp.domain.model.Book;
+import mk.ukim.finki.libraryapp.domain.model.Category;
 import mk.ukim.finki.libraryapp.domain.model.dto.BookDto;
 import mk.ukim.finki.libraryapp.service.BookService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
@@ -47,5 +50,10 @@ public class BooksRestController {
         this.bookService.delete(id);
         if(this.bookService.findById(id).isEmpty()) return ResponseEntity.ok().build();
         return ResponseEntity.badRequest().build();
+    }
+
+    @GetMapping("/categories")
+    private List<Category> findAllCategories() {
+        return Arrays.stream(Category.values()).collect(Collectors.toList());
     }
 }
